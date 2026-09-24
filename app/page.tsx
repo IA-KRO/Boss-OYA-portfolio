@@ -18,7 +18,6 @@ export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("Tous");
   const categories = ["Tous", "SaaS & IA", "FinTech", "IoT & Systèmes", "Growth Ops"];
 
-  // Liste des 4 visuels pour le carrousel infini
   const marqueeItems = [
     { src: "/brain-ai.jpg", alt: "Architecture IA", label: "IA & RAG" },
     { src: "/freebetcash.png", alt: "Freebet Cash", label: "FinTech" },
@@ -40,7 +39,8 @@ export default function Portfolio() {
       description: "Suite unifiée pour dirigeants et PME combinant gestion commerciale, stocks, facturation et agents IA autonomes connectés aux données métiers.",
       stack: ["Next.js", "Docker", "IA / RAG", "PostgreSQL", "Tailwind"],
       stat: "+60% d'efficacité",
-      image: "/Avatar-GERANT-sansfond.png"
+      image: "/Avatar-GERANT-sansfond.png",
+      waMessage: "Bonjour Boss OYA, je souhaite échanger sur le projet GÉRANT-IA."
     },
     {
       id: "freebetcash",
@@ -51,7 +51,8 @@ export default function Portfolio() {
       description: "Plateforme web d'arbitrage de données et d'analyse en temps réel, optimisée pour un affichage asynchrone ultra-fluide sur mobile et desktop.",
       stack: ["React", "FastAPI", "WebSockets", "Finance Data"],
       stat: "< 100ms latence",
-      image: "/freebetcash.png"
+      image: "/freebetcash.png",
+      waMessage: "Bonjour Boss OYA, je souhaite échanger sur la solution Freebetcash."
     },
     {
       id: "smart-eco-waste",
@@ -62,7 +63,8 @@ export default function Portfolio() {
       description: "Projet de fin d'études : capteurs embarqués de détection et télémétrie en temps réel pour l'optimisation des collectes urbaines.",
       stack: ["Microcontrôleurs", "C++", "Capteurs", "Dashboard IoT"],
       stat: "Mention Excellence",
-      image: "/smart-bin.jpg"
+      image: "/smart-bin.jpg",
+      waMessage: "Bonjour Boss OYA, je souhaite échanger sur vos prototypes IoT et systèmes connectés."
     },
     {
       id: "crm-growth-engines",
@@ -73,7 +75,8 @@ export default function Portfolio() {
       description: "Déploiement de workflows CRM automatisés, stratégies d'acquisition et gestion du support client chez Yango CI et GISI Énergie Solaire.",
       stack: ["Workflows CRM", "Automation", "Analytics", "Vente B2B"],
       stat: "+25k tickets gérés",
-      image: "/brain-ai.jpg"
+      image: "/brain-ai.jpg",
+      waMessage: "Bonjour Boss OYA, je souhaite échanger sur l'automatisation CRM et vos services Growth Ops."
     }
   ];
 
@@ -100,31 +103,11 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#09090B] font-sans selection:bg-amber-400 selection:text-black">
-      
-      {/* Styles d'animation du carrousel intégrés */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee-track {
-          display: flex;
-          width: max-content;
-          animation: marquee 22s linear infinite;
-        }
-        .animate-marquee-track:hover {
-          animation-play-state: paused;
-        }
-      `}} />
-
       <div className="flex flex-col lg:flex-row max-w-[1400px] mx-auto">
         
-        {/* ========================================= */}
-        {/* SIDEBAR GAUCHE (Flottante & Sombre)       */}
-        {/* ========================================= */}
+        {/* SIDEBAR GAUCHE */}
         <aside className="lg:w-[320px] p-4 lg:p-6 lg:sticky lg:top-0 lg:h-screen z-20">
           <div className="bg-[#151515] w-full h-full rounded-[32px] p-6 sm:p-8 flex flex-col text-white shadow-2xl relative overflow-hidden">
-            
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-amber-500/10 blur-3xl pointer-events-none rounded-full" />
 
             <div className="flex items-center gap-4 mb-8 relative">
@@ -147,12 +130,16 @@ export default function Portfolio() {
 
             <nav className="space-y-1 mb-8 flex-1">
               {[
-                { id: 'about', label: '01. À propos' },
-                { id: 'services', label: '02. Services' },
-                { id: 'projets', label: '03. Réalisations' },
-                { id: 'parcours', label: '04. Parcours' }
+                { id: "about", label: "01. À propos" },
+                { id: "services", label: "02. Services" },
+                { id: "projets", label: "03. Réalisations" },
+                { id: "parcours", label: "04. Parcours" }
               ].map((item) => (
-                <a key={item.id} href={`#${item.id}`} className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors text-sm font-medium">
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors text-sm font-medium"
+                >
                   <div className="w-1.5 h-1.5 rounded-full bg-zinc-700" />
                   {item.label}
                 </a>
@@ -184,17 +171,14 @@ export default function Portfolio() {
           </div>
         </aside>
 
-        {/* ========================================= */}
-        {/* CONTENU PRINCIPAL                         */}
-        {/* ========================================= */}
+        {/* CONTENU PRINCIPAL */}
         <main className="flex-1 px-4 lg:px-16 py-12 lg:py-20 max-w-5xl mx-auto overflow-hidden">
           
-          {/* SECTION HERO */}
+          {/* HERO */}
           <section id="about" className="flex flex-col items-center text-center pt-8 pb-16">
-            
             <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
               <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-zinc-200 text-xs font-semibold text-zinc-600 shadow-sm">
-                 @boss_oya
+                @boss_oya
               </span>
               <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-semibold text-emerald-700 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -209,17 +193,15 @@ export default function Portfolio() {
             </h1>
 
             <p className="text-lg text-zinc-500 max-w-2xl mx-auto mb-8 leading-relaxed">
-              L'alliance de l'ingénierie, du logiciel et de l'impact terrain. Mon parcours croise la rigueur de l'électronique, la vision de l'environnement et le réalisme de la vente[cite: 2].
+              L'alliance de l'ingénierie, du logiciel et de l'impact terrain. Mon parcours croise la rigueur de l'électronique, la vision de l'environnement et le réalisme de la vente.
             </p>
 
-            {/* ========================================= */}
-            {/* CARROUSEL D'IMAGES CONTINU (MARQUEE)      */}
-            {/* ========================================= */}
+            {/* CARROUSEL D'IMAGES CONTINU */}
             <div className="relative w-full max-w-3xl mx-auto my-6 overflow-hidden rounded-3xl py-2">
               <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#FAFAFA] to-transparent z-10" />
               <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#FAFAFA] to-transparent z-10" />
 
-              <div className="animate-marquee-track flex gap-4 items-center">
+              <div className="animate-marquee flex gap-4 items-center">
                 {marqueeItems.map((item, idx) => (
                   <div
                     key={idx}
@@ -238,7 +220,7 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* 4 Piliers Bento */}
+            {/* PILIERS */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full mt-6">
               {[
                 { title: "Rigueur", desc: "Diagnostic à la racine" },
@@ -255,7 +237,7 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* SECTION SERVICES */}
+          {/* SERVICES */}
           <section id="services" className="pt-20 border-t border-zinc-200">
             <div className="mb-12">
               <span className="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4 inline-block">
@@ -279,7 +261,7 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* SECTION REALISATIONS */}
+          {/* REALISATIONS */}
           <section id="projets" className="pt-24 mt-20 border-t border-zinc-200">
             <div className="flex flex-col items-center mb-12 text-center">
               <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-black mb-8">
@@ -306,18 +288,17 @@ export default function Portfolio() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {filteredProjects.map((p) => (
                 <div key={p.id} className="group relative bg-white border border-zinc-200 rounded-[32px] p-2 hover:shadow-xl hover:border-zinc-300 transition-all duration-300 flex flex-col">
-                  
                   <div className="w-full h-64 bg-zinc-50 rounded-[24px] overflow-hidden mb-6 relative flex items-center justify-center p-6">
-                     <img 
-                       src={p.image} 
-                       alt={p.title} 
-                       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" 
-                     />
-                     <div className="absolute top-4 left-4 flex gap-2">
-                       <span className="px-3 py-1 bg-white/95 backdrop-blur text-[11px] font-bold uppercase tracking-wider rounded-full text-black shadow-sm">
-                         {p.tag}
-                       </span>
-                     </div>
+                    <img 
+                      src={p.image} 
+                      alt={p.title} 
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" 
+                    />
+                    <div className="absolute top-4 left-4 flex gap-2">
+                      <span className="px-3 py-1 bg-white/95 backdrop-blur text-[11px] font-bold uppercase tracking-wider rounded-full text-black shadow-sm">
+                        {p.tag}
+                      </span>
+                    </div>
                   </div>
                   
                   <div className="px-5 pb-6 flex-1 flex flex-col">
@@ -332,24 +313,29 @@ export default function Portfolio() {
                     
                     <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-zinc-100">
                       <div className="flex flex-wrap gap-2">
-                        {p.stack.slice(0,3).map((tech) => (
+                        {p.stack.slice(0, 3).map((tech) => (
                           <span key={tech} className="text-[11px] px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 font-medium">
                             {tech}
                           </span>
                         ))}
                       </div>
-                      <a href="https://wa.me/2250777583007" target="_blank" rel="noopener noreferrer" className="p-2 bg-zinc-100 rounded-full hover:bg-amber-400 hover:text-black transition-colors">
+                      <a 
+                        href={`https://wa.me/2250777583007?text=${encodeURIComponent(p.waMessage)}`}
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="p-2 bg-zinc-100 rounded-full hover:bg-amber-400 hover:text-black transition-colors"
+                        title="Discuter de ce projet"
+                      >
                         <ArrowUpRight className="w-4 h-4" />
                       </a>
                     </div>
                   </div>
-
                 </div>
               ))}
             </div>
           </section>
 
-          {/* SECTION PARCOURS */}
+          {/* PARCOURS */}
           <section id="parcours" className="pt-24 mt-20 border-t border-zinc-200">
             <div className="mb-12">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
@@ -389,7 +375,7 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* SECTION CONTACT */}
+          {/* CONTACT */}
           <section className="mt-24 bg-[#151515] rounded-[40px] p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 blur-[80px] pointer-events-none rounded-full" />
             
