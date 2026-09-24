@@ -20,13 +20,16 @@ export default function Portfolio() {
 
   const marqueeItems = [
     { src: "/brain-ai.jpg", alt: "Architecture IA", label: "IA & RAG" },
-    { src: "/freebetcash.png", alt: "Freebet Cash", label: "FinTech" },
-    { src: "/Avatar-GERANT-sansfond.png", alt: "Gérant IA", label: "SaaS Copilot" },
-    { src: "/smart-bin.jpg", alt: "Smart Eco-Waste CERCO", label: "IoT Urbain" },
+    { src: "/freebetcash.png", alt: "Freebet Cash", label: "FinTech Data" },
+    { src: "/logo-gerant.png", alt: "Logo GÉRANT SaaS", label: "GÉRANT Suite SaaS" },
+    { src: "/Avatar-GERANT-sansfond.png", alt: "Gérant IA Copilote", label: "Copilote IA Métier" },
+    { src: "/smart-bin.jpg", alt: "Smart Eco-Waste CERCO", label: "Système IoT Urbain" },
+    // Duplication pour défilement infini sans coupure
     { src: "/brain-ai.jpg", alt: "Architecture IA", label: "IA & RAG" },
-    { src: "/freebetcash.png", alt: "Freebet Cash", label: "FinTech" },
-    { src: "/Avatar-GERANT-sansfond.png", alt: "Gérant IA", label: "SaaS Copilot" },
-    { src: "/smart-bin.jpg", alt: "Smart Eco-Waste CERCO", label: "IoT Urbain" }
+    { src: "/freebetcash.png", alt: "Freebet Cash", label: "FinTech Data" },
+    { src: "/logo-gerant.png", alt: "Logo GÉRANT SaaS", label: "GÉRANT Suite SaaS" },
+    { src: "/Avatar-GERANT-sansfond.png", alt: "Gérant IA Copilote", label: "Copilote IA Métier" },
+    { src: "/smart-bin.jpg", alt: "Smart Eco-Waste CERCO", label: "Système IoT Urbain" }
   ];
 
   const projects = [
@@ -37,7 +40,7 @@ export default function Portfolio() {
       tag: "SaaS & Intelligence Artificielle",
       headline: "Copilote intelligent de gestion d'entreprise & automatisation RAG",
       description: "Suite unifiée pour dirigeants et PME combinant gestion commerciale, stocks, facturation et agents IA autonomes connectés aux données métiers.",
-      stack: ["Next.js", "Docker", "IA / RAG", "PostgreSQL", "Tailwind"],
+      stack: ["Next.js", "Docker / N8N", "IA / RAG", "PostgreSQL", "Tailwind"],
       stat: "+60% d'efficacité",
       image: "/Avatar-GERANT-sansfond.png",
       waMessage: "Bonjour Boss OYA, je souhaite échanger sur le projet GÉRANT-IA."
@@ -196,25 +199,37 @@ export default function Portfolio() {
               L'alliance de l'ingénierie, du logiciel et de l'impact terrain. Mon parcours croise la rigueur de l'électronique, la vision de l'environnement et le réalisme de la vente.
             </p>
 
-            {/* CARROUSEL D'IMAGES CONTINU */}
-            <div className="relative w-full max-w-3xl mx-auto my-6 overflow-hidden rounded-3xl py-2">
-              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#FAFAFA] to-transparent z-10" />
-              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#FAFAFA] to-transparent z-10" />
+            {/* ========================================= */}
+            {/* CARROUSEL GRAND FORMAT (Style Lewius)     */}
+            {/* ========================================= */}
+            <div className="relative w-full max-w-5xl mx-auto my-10 overflow-hidden rounded-[36px] py-4">
+              
+              {/* Masques de dégradé sur les bords pour un fondu naturel */}
+              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-r from-[#FAFAFA] via-[#FAFAFA]/70 to-transparent z-10" />
+              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-l from-[#FAFAFA] via-[#FAFAFA]/70 to-transparent z-10" />
 
-              <div className="animate-marquee flex gap-4 items-center">
+              {/* Piste de défilement agrandie */}
+              <div className="animate-marquee flex gap-6 sm:gap-8 items-center py-2">
                 {marqueeItems.map((item, idx) => (
                   <div
                     key={idx}
-                    className="group relative flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-white border border-zinc-200/90 p-3.5 shadow-sm hover:shadow-xl hover:border-amber-400/60 hover:scale-105 transition-all duration-300 flex flex-col items-center justify-center cursor-pointer"
+                    className="group relative flex-shrink-0 w-48 h-64 sm:w-56 sm:h-72 rounded-[32px] bg-white border border-zinc-200/90 p-6 shadow-sm hover:shadow-2xl hover:border-amber-400/80 hover:scale-[1.03] transition-all duration-300 flex flex-col items-center justify-between cursor-pointer overflow-hidden"
                   >
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="w-full h-full object-contain filter group-hover:brightness-105 transition"
-                    />
-                    <span className="absolute bottom-1.5 text-[9px] font-bold text-zinc-600 uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                      {item.label}
-                    </span>
+                    {/* Zone de l'image agrandie */}
+                    <div className="w-full flex-1 flex items-center justify-center p-2">
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        className="max-h-36 sm:max-h-44 w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+
+                    {/* Badge de catégorie inférieur */}
+                    <div className="w-full pt-3 border-t border-zinc-100 flex items-center justify-center">
+                      <span className="text-[11px] font-bold text-zinc-700 uppercase tracking-wider group-hover:text-amber-600 transition-colors">
+                        {item.label}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
