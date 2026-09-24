@@ -3,16 +3,16 @@ import { ArrowLeft, ArrowUpRight, Sparkles } from "lucide-react";
 
 const timeline = [
   {
-    period: "Depuis 2025",
-    role: "Formation pour une maîtrise en IA",
+    period: "Depuis 2024",
+    role: "Formation pour une Maîtrise en IA",
     place: "",
     impact: "Montée en compétence continue autour de l'intelligence artificielle, de l'automatisation et des systèmes intelligents.",
   },
   {
-    period: "2025 — maintenant",
+    period: "2024 — maintenant",
     role: "Certificats et spécialisations IA",
     place: "",
-    impact: "Learn to build with n8n — n8n Academy · Google AI Essentials — Google / Coursera · AI Essentials for Decision Makers — UNITAR.",
+    impact: "· Learn to build with n8n — N8N Academy· Google AI Essentials — Google / Coursera · AI Essentials for Decision Makers — UNITAR (Institut des Nations Unies)",
   },
   {
     period: "2024 — 2025",
