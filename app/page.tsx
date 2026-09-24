@@ -4,26 +4,18 @@ import React, { useState } from "react";
 import { 
   Sparkles, 
   ArrowUpRight, 
-  Mail, 
   Phone, 
   MapPin, 
-  CheckCircle2, 
-  Code2, 
-  Cpu, 
-  Bot, 
-  TrendingUp, 
-  GraduationCap, 
-  Briefcase,
+  CheckCircle2,
+  Mail,
   Layers,
-  ChevronRight,
-  Workflow,
-  Radio,
-  ExternalLink
+  Bot,
+  TrendingUp,
+  Cpu
 } from "lucide-react";
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("Tous");
-
   const categories = ["Tous", "SaaS & IA", "FinTech", "IoT & Systèmes", "Growth Ops"];
 
   const projects = [
@@ -32,506 +24,346 @@ export default function Portfolio() {
       title: "GÉRANT-IA",
       category: "SaaS & IA",
       tag: "SaaS & Intelligence Artificielle",
-      badgeColor: "text-amber-400 border-amber-500/30 bg-amber-500/10",
       headline: "Copilote intelligent de gestion d'entreprise & automatisation RAG",
-      description:
-        "Suite unifiée pour dirigeants et PME combinant gestion commerciale, stocks, facturation et agents IA autonomes capables d'interagir directement avec les flux de travail métiers.",
-      stack: ["Next.js", "Docker", "IA / RAG", "PostgreSQL", "Tailwind CSS"],
-      stat: "+60% d'efficacité opérationnelle",
-      featured: true,
+      description: "Suite unifiée pour dirigeants et PME combinant gestion commerciale, stocks, facturation et agents IA autonomes connectés aux données métiers.",
+      stack: ["Next.js", "Docker", "IA / RAG", "PostgreSQL", "Tailwind"],
+      stat: "+60% d'efficacité",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: "freebetcash",
       title: "Freebetcash",
       category: "FinTech",
       tag: "FinTech & Data Analytics",
-      badgeColor: "text-sky-400 border-sky-500/30 bg-sky-500/10",
-      headline: "Système prédictif & optimisation financière à flux continu",
-      description:
-        "Plateforme web d'arbitrage et d'analyse en temps réel, optimisée pour un traitement asynchrone ultra-fluide avec une latence d'affichage quasi nulle sur mobile et desktop.",
-      stack: ["React", "FastAPI", "WebSockets", "Data Engine", "ChartJS"],
-      stat: "< 100ms de latence",
-      featured: false,
+      headline: "Système prédictif & optimisation financière à haute fréquence",
+      description: "Plateforme web d'arbitrage de données et d'analyse en temps réel, optimisée pour un affichage asynchrone ultra-fluide sur mobile et desktop.",
+      stack: ["React", "FastAPI", "WebSockets", "Finance Data"],
+      stat: "< 100ms latence",
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: "smart-eco-waste",
       title: "Smart Eco-Waste IoT",
       category: "IoT & Systèmes",
-      tag: "IoT & Informatique Industrielle",
-      badgeColor: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
-      headline: "Poubelle connectée autonome pour le tri écologique urbain",
-      description:
-        "Dispositif autonome de tri intelligent et de télémétrie en temps réel pour smart cities. Conception des capteurs électroniques embarqués et monitoring distant des flux de déchets.",
-      stack: ["Microcontrôleurs", "C++", "Télémétrie Ultrasons", "Réseaux IoT"],
-      stat: "Mention d'Excellence CERCO",
-      featured: false,
+      tag: "IoT & Ville Durable",
+      headline: "Poubelle connectée autonome pour le tri urbain intelligent",
+      description: "Projet de fin d'études : capteurs embarqués de détection et télémétrie en temps réel pour l'optimisation des collectes urbaines.",
+      stack: ["Microcontrôleurs", "C++", "Capteurs", "Dashboard IoT"],
+      stat: "Mention Excellence",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: "crm-growth-engines",
       title: "Growth & CRM Ops Engine",
       category: "Growth Ops",
       tag: "Growth Ops & Relation Client",
-      badgeColor: "text-purple-400 border-purple-500/30 bg-purple-500/10",
-      headline: "Pipelines d'acquisition et support client à haute cadence",
-      description:
-        "Structuration complète de workflows CRM, automatisation du support utilisateur à grande échelle et campagnes de croissance ciblées chez Yango CI et GISI Énergie Solaire.",
-      stack: ["Workflows CRM", "Support Automation", "Analytics", "Vente B2B"],
-      stat: "+25k flux & requêtes traités",
-      featured: false,
-    },
+      headline: "Architecture de support et tunnels d'acquisition haute cadence",
+      description: "Déploiement de workflows CRM automatisés, stratégies d'acquisition et gestion du support client chez Yango CI et GISI Énergie Solaire.",
+      stack: ["Workflows CRM", "Automation", "Analytics", "Vente B2B"],
+      stat: "+25k tickets gérés",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+    }
   ];
 
-  const filteredProjects =
-    activeTab === "Tous"
-      ? projects
-      : projects.filter((p) => p.category === activeTab);
+  const filteredProjects = activeTab === "Tous" 
+    ? projects 
+    : projects.filter((p) => p.category === activeTab);
 
   const timeline = [
-    {
-      period: "Depuis Sept. 2024",
-      role: "Promoteur Automobile",
-      place: "SAM Motors",
-      type: "Terrain & Haute Valeur",
-      impact: "Vente consultative premium, négociation directe et fidélisation de clientèle stratégique à fort pouvoir d'achat."
-    },
-    {
-      period: "2023 — 2024",
-      role: "CRM Freelance & Support Client",
-      place: "Yandex / Yango CI",
-      type: "Ops & Volume Tech",
-      impact: "Gestion opérationnelle CRM à flux tendu sur une application de mobilité urbaine grand public. Réduction drastique des frictions utilisateurs."
-    },
-    {
-      period: "2023",
-      role: "Licence Pro Sciences Environnementales",
-      place: "Groupe ITA",
-      type: "Pensée Systémique",
-      impact: "Acquisition d'une vision globale et durable : chaque composant impacte l'écosystème global. Fondement d'architectures logicielles résilientes."
-    },
-    {
-      period: "2021 — 2023",
-      role: "Technico-Commercial & Community Manager",
-      place: "GISI (Énergie Solaire)",
-      type: "Terrain & Digital",
-      impact: "Synergie entre savoir-faire technique solaire, supervision du SAV et accélération de la notoriété par des campagnes ciblées."
-    },
-    {
-      period: "2020",
-      role: "Licence Informatique Industrielle & Réseaux",
-      place: "Groupe CERCO",
-      type: "Hardware & Logiciel",
-      impact: "Conception complète du prototype de Poubelle intelligente connectée (Smart Eco-Waste IoT). Fusion de l'embarqué et du cloud."
-    },
-    {
-      period: "2018",
-      role: "DUT Systèmes Électroniques & Informatiques",
-      place: "CERCO",
-      type: "Logique & Matériel",
-      impact: "Maîtrise des signaux, schémas logiques et algèbre booléenne. Méthode cartésienne d'isolation de la cause première."
-    },
-    {
-      period: "2016",
-      role: "Baccalauréat F2 (Électronique) & Art Oratoire",
-      place: "GS André Malraux",
-      type: "Rigueur & Rhétorique",
-      impact: "Rigueur stricte des circuits électriques combinée à la formation en art oratoire pour vulgariser et convaincre avec impact."
-    },
-    {
-      period: "2013",
-      role: "BEPC & Formation Fondamentale",
-      place: "Petit Séminaire",
-      type: "Discipline & Morale",
-      impact: "Apprentissage du latin, discipline personnelle intransigeante, probité intellectuelle et sens de l'analyse patiente."
-    }
+    { period: "Depuis Sept. 2024", role: "Promoteur Automobile", place: "SAM Motors", impact: "Vente consultative à haute valeur ajoutée, négociation directe et fidélisation de clientèle premium." },
+    { period: "2023 — 2024", role: "CRM Freelance & Support Client", place: "Yango CI", impact: "Traitement à flux tendu sur une tech de mobilité urbaine. Résolution de frictions et fidélisation à fort volume." },
+    { period: "2023", role: "Licence Pro Sciences Environnementales", place: "Groupe ITA", impact: "Acquisition de la pensée systémique : impacts globaux, résilience des écosystèmes et économie circulaire." },
+    { period: "2021 — 2023", role: "Technico-Commercial & CM", place: "GISI (Solaire)", impact: "Synergie entre expertise technique solaire, coordination de maintenance SAV et visibilité digitale." },
+    { period: "2020", role: "Licence Informatique Industrielle", place: "Groupe CERCO", impact: "Passerelle physique-logiciel : conception du prototype de Poubelle intelligente et connectée." },
+    { period: "2018", role: "DUT Systèmes Électroniques", place: "CERCO", impact: "Compréhension des composants matériels, logique booléenne et diagnostic méthodique des pannes." }
   ];
 
   const services = [
-    {
-      icon: <Layers className="w-5 h-5 text-amber-400" />,
-      title: "Conception & Création de SaaS",
-      desc: "De la modélisation de base de données à l'interface moderne. Conception d'applications web scalables, sécurisées, monétisables et pensées pour le client."
-    },
-    {
-      icon: <Bot className="w-5 h-5 text-sky-400" />,
-      title: "Intégration d'IA & Automatisation",
-      desc: "Déploiement d'agents autonomes, architectures RAG indexant vos données métiers et automatisation des flux de travail récurrents sans rupture opérationnelle."
-    },
-    {
-      icon: <TrendingUp className="w-5 h-5 text-emerald-400" />,
-      title: "Architecture CRM & Stratégie Produit",
-      desc: "Structuration de tunnels de conversion, configuration de CRM sur mesure et accompagnement produit pour convertir, retenir et fidéliser."
-    },
-    {
-      icon: <Cpu className="w-5 h-5 text-purple-400" />,
-      title: "Solutions Connectées & IoT",
-      desc: "Passerelle directe entre équipement physique (capteurs, contrôleurs) et dashboards temps réel hébergés dans le cloud."
-    }
+    { icon: <Layers className="w-6 h-6 text-amber-500" />, title: "Création de SaaS", desc: "Architecture, base de données et interfaces web scalables prêtes à être monétisées." },
+    { icon: <Bot className="w-6 h-6 text-sky-500" />, title: "Intégration d'IA", desc: "Agents IA métiers, pipelines RAG et workflows d'automatisation pour supprimer les tâches chronophages." },
+    { icon: <TrendingUp className="w-6 h-6 text-emerald-500" />, title: "Architecture CRM", desc: "Tunnels de conversion, configuration CRM et accompagnement produit pour maximiser la rétention." },
+    { icon: <Cpu className="w-6 h-6 text-purple-500" />, title: "IoT & Systèmes", desc: "Liaison entre le matériel physique (capteurs) et les dashboards cloud en temps réel." }
   ];
 
   return (
-    <div className="min-h-screen bg-[#090a0d] text-zinc-100 font-sans antialiased selection:bg-amber-400 selection:text-black">
+    <div className="min-h-screen bg-[#FAFAFA] text-[#09090B] font-sans selection:bg-amber-400 selection:text-black">
       
-      {/* Texture de fond subtile et lueurs atmosphériques */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute -top-40 left-1/3 w-[600px] h-[500px] bg-amber-500/[0.04] blur-[150px] rounded-full" />
-        <div className="absolute top-[40%] right-10 w-[500px] h-[500px] bg-sky-500/[0.03] blur-[150px] rounded-full" />
-      </div>
+      <div className="flex flex-col lg:flex-row max-w-[1400px] mx-auto">
+        
+        {/* ========================================= */}
+        {/* SIDEBAR GAUCHE (Flottante & Sombre)       */}
+        {/* ========================================= */}
+        <aside className="lg:w-[320px] p-4 lg:p-6 lg:sticky lg:top-0 lg:h-screen z-20">
+          <div className="bg-[#151515] w-full h-full rounded-[32px] p-6 sm:p-8 flex flex-col text-white shadow-2xl relative overflow-hidden">
+            
+            {/* Effet lumineux discret */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-amber-500/10 blur-3xl pointer-events-none rounded-full" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* ======================================================== */}
-          {/* SIDEBAR GAUCHE : Widget Flottant Sombre Style Framer     */}
-          {/* ======================================================== */}
-          <aside className="lg:col-span-4 lg:sticky lg:top-8">
-            <div className="bg-[#111317] border border-zinc-800/90 rounded-[32px] p-6 sm:p-7 shadow-2xl relative overflow-hidden backdrop-blur-xl">
-              
-              {/* Reflet lumineux d'en-tête */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-500/20 to-transparent" />
-              
-              {/* Photo de profil + Status */}
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="relative">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-b from-zinc-800 to-zinc-900 border border-zinc-700/80 overflow-hidden flex items-center justify-center font-bold text-xl text-amber-400 shadow-inner">
-                    BO
-                  </div>
-                  <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-[3px] border-[#111317] rounded-full" />
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-1.5">
-                    Boss OYA
-                    <Sparkles className="w-4 h-4 text-amber-400 inline" />
-                  </h1>
-                  <span className="inline-block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mt-0.5">
-                    Créateur de SaaS • Ingénieur Produit
-                  </span>
-                </div>
+            {/* Header Sidebar */}
+            <div className="flex items-center gap-4 mb-8 relative">
+              <div className="w-14 h-14 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center font-bold text-xl text-amber-400">
+                BO
               </div>
-
-              {/* Mini-Bio */}
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 border-b border-zinc-800/80 pb-6">
-                Étudiant permanent par soif d'apprendre, bâtisseur par vocation. J'allie rigueur de l'électronique, vision systémique et réalisme commercial pour transformer des problèmes complexes en SaaS rentables.
-              </p>
-
-              {/* Navigation fluide */}
-              <nav className="space-y-1.5 mb-6 text-sm font-medium">
-                {[
-                  { label: "01. À propos", desc: "Perspective & Logique", href: "#about" },
-                  { label: "02. Services & Freelance", desc: "Solutions métiers", href: "#services" },
-                  { label: "03. Réalisations", desc: "SaaS & Plateformes", href: "#projets" },
-                  { label: "04. Parcours & Formations", desc: "Du Séminaire au SaaS", href: "#parcours" },
-                ].map((item, idx) => (
-                  <a
-                    key={idx}
-                    href={item.href}
-                    className="flex items-center justify-between p-3 rounded-2xl hover:bg-zinc-800/40 text-zinc-300 hover:text-white transition-all group border border-transparent hover:border-zinc-800"
-                  >
-                    <span className="group-hover:translate-x-1 transition-transform">{item.label}</span>
-                    <span className="text-[11px] text-zinc-500 group-hover:text-zinc-400 transition-colors font-normal">
-                      {item.desc}
-                    </span>
-                  </a>
-                ))}
-              </nav>
-
-              {/* Localisation & Disponibilité */}
-              <div className="space-y-2.5 text-xs text-zinc-400 mb-6 bg-zinc-900/70 p-4 rounded-2xl border border-zinc-800/60">
-                <div className="flex items-center gap-2.5">
-                  <MapPin className="w-3.5 h-3.5 text-zinc-400" />
-                  <span>Abidjan, Côte d'Ivoire (Remote friendly)</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-emerald-300 font-medium">Disponible pour missions Freelance & SaaS</span>
-                </div>
+              <div>
+                <h1 className="text-lg font-bold text-white flex items-center gap-1.5">
+                  Boss OYA <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                </h1>
+                <p className="text-[11px] text-zinc-400 uppercase tracking-widest mt-0.5">Ingénieur Produit</p>
               </div>
+            </div>
 
-              {/* Bouton CTA Action */}
+            {/* Bio */}
+            <p className="text-sm text-zinc-400 leading-relaxed mb-8">
+              Étudiant permanent par soif d'apprendre, bâtisseur par vocation. Je conçois des SaaS, déploie des systèmes IA et combine vision technique et maîtrise commerciale.
+            </p>
+
+            {/* Navigation */}
+            <nav className="space-y-1 mb-8 flex-1">
+              {[
+                { id: 'about', label: '01. À propos' },
+                { id: 'services', label: '02. Services' },
+                { id: 'projets', label: '03. Réalisations' },
+                { id: 'parcours', label: '04. Parcours' }
+              ].map((item) => (
+                <a key={item.id} href={`#${item.id}`} className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors text-sm font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-zinc-700" />
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+
+            {/* Status */}
+            <div className="space-y-3 text-xs text-zinc-400 mb-6 bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800/50">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5 text-zinc-500" />
+                <span>Abidjan, Côte d'Ivoire</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="text-emerald-300">Ouvert aux missions</span>
+              </div>
+            </div>
+
+            {/* Bouton CTA Principal */}
+            <div className="mt-auto">
               <a
                 href="https://wa.me/2250101639295"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:opacity-95 text-black font-semibold text-sm py-3.5 px-4 rounded-2xl shadow-lg shadow-amber-500/10 transition-all transform active:scale-[0.98]"
+                className="w-full flex items-center justify-center gap-2 bg-white text-black hover:bg-zinc-200 font-semibold text-sm py-4 px-4 rounded-[20px] transition-all"
               >
                 <Phone className="w-4 h-4" />
                 <span>Discuter d'un projet</span>
               </a>
             </div>
-          </aside>
+          </div>
+        </aside>
 
-          {/* ======================================================== */}
-          {/* CONTENU PRINCIPAL : Bento Feed (Centre & Droite)         */}
-          {/* ======================================================== */}
-          <main className="lg:col-span-8 space-y-16">
+        {/* ========================================= */}
+        {/* CONTENU PRINCIPAL (Blanc, Centré, Aéré)   */}
+        {/* ========================================= */}
+        <main className="flex-1 px-4 lg:px-16 py-12 lg:py-20 max-w-5xl mx-auto overflow-hidden">
+          
+          {/* SECTION HERO */}
+          <section id="about" className="flex flex-col items-center text-center pt-8 pb-20">
+            
+            {/* Badges du haut */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+              <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-zinc-200 text-xs font-semibold text-zinc-600 shadow-sm">
+                 @boss_oya
+              </span>
+              <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-semibold text-emerald-700 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                Bâtisseur SaaS & IA
+              </span>
+            </div>
 
-            {/* SECTION 01 : HERO & À PROPOS */}
-            <section id="about" className="space-y-8 pt-2">
+            {/* Titre Massif */}
+            <h1 className="text-[2.5rem] sm:text-[4rem] lg:text-[5.5rem] font-extrabold tracking-tighter leading-[1.05] text-[#09090B] mb-8">
+              Hi I'm Boss OYA <br />
+              Créateur de SaaS <br />
+              <span className="text-zinc-400">&</span> Ingénieur Produit
+            </h1>
+
+            <p className="text-lg text-zinc-500 max-w-2xl mx-auto mb-12 leading-relaxed">
+              L'alliance de l'ingénierie, du logiciel et de l'impact terrain. Mon parcours croise la rigueur de l'électronique, la vision de l'environnement et le réalisme de la vente.
+            </p>
+
+            {/* 4 Vignettes (Piliers) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full mt-4">
+              {[
+                { title: "Rigueur", desc: "Diagnostic à la racine" },
+                { title: "Système", desc: "Pensée globale" },
+                { title: "IA", desc: "Automatisation" },
+                { title: "Humain", desc: "Sens du contact" }
+              ].map((item, i) => (
+                <div key={i} className="bg-white border border-zinc-200 rounded-2xl p-5 text-left shadow-sm hover:shadow-md transition-shadow">
+                  <span className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-2 block">0{i + 1}</span>
+                  <h3 className="text-sm font-bold text-black">{item.title}</h3>
+                  <p className="text-xs text-zinc-500 mt-1">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* SECTION SERVICES */}
+          <section id="services" className="pt-20 border-t border-zinc-200">
+            <div className="mb-12">
+              <span className="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4 inline-block">
+                Expertises
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-black">
+                Services & Offres Freelance
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {services.map((s, idx) => (
+                <div key={idx} className="bg-white border border-zinc-200 p-8 rounded-[32px] hover:border-zinc-300 hover:shadow-lg transition-all duration-300 group">
+                  <div className="mb-6 p-4 bg-zinc-50 rounded-2xl w-fit group-hover:scale-110 transition-transform">
+                    {s.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-black mb-3">{s.title}</h3>
+                  <p className="text-sm text-zinc-500 leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* SECTION REALISATIONS */}
+          <section id="projets" className="pt-24 mt-20 border-t border-zinc-200">
+            <div className="flex flex-col items-center mb-12 text-center">
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-black mb-8">
+                Projects that tell stories
+              </h2>
               
-              {/* Badges du haut */}
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 shadow-sm">
-                  @boss_oya
-                </span>
-                <span className="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Product Engineer & SaaS Creator
-                </span>
-              </div>
-
-              {/* Titre Principal Éditorial */}
-              <div>
-                <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-white leading-[1.12]">
-                  L'alliance de l'ingénierie, du logiciel et de l'impact terrain.
-                </h2>
-                <p className="mt-5 text-base sm:text-lg text-zinc-300 leading-relaxed font-normal">
-                  Mon parcours pluridisciplinaire est mon plus grand atout stratégique : 
-                  la rigueur morale acquise au <strong>Petit Séminaire</strong>, 
-                  la vérité brute des circuits en <strong>Électronique</strong>, 
-                  la pensée systémique des <strong>Sciences Environnementales</strong> 
-                  et la réalité de la <strong>vente & relation client (Yango CI, SAM Motors)</strong>.
-                </p>
-              </div>
-
-              {/* Galerie Visuelle d'Univers (Les 4 Vignettes inspirées du template) */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2">
-                {[
-                  { label: "SaaS Architecture", sub: "Modular Code", icon: <Code2 className="w-5 h-5 text-amber-400" /> },
-                  { label: "Intelligence Artificielle", sub: "LLM & Workflows", icon: <Bot className="w-5 h-5 text-sky-400" /> },
-                  { label: "Hardware & IoT", sub: "Systèmes Réseaux", icon: <Radio className="w-5 h-5 text-emerald-400" /> },
-                  { label: "Growth Engines", sub: "CRM & Acquisition", icon: <TrendingUp className="w-5 h-5 text-purple-400" /> },
-                ].map((card, i) => (
-                  <div 
-                    key={i} 
-                    className="bg-[#121419] border border-zinc-800/80 hover:border-zinc-700 p-4 rounded-2xl flex flex-col justify-between h-28 transition-all hover:-translate-y-0.5"
-                  >
-                    <div className="w-8 h-8 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center">
-                      {card.icon}
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-white truncate">{card.label}</p>
-                      <p className="text-[10px] text-zinc-500 uppercase tracking-wider">{card.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Les 4 Piliers de réflexion (Bento Highlights) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="bg-[#111317] border border-zinc-800/80 p-5 rounded-2xl">
-                  <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">01. Rigueur & Analyse</span>
-                  <h3 className="text-base font-semibold text-white mt-1">Diagnostic à la racine</h3>
-                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
-                    Héritage de l'électronique : un signal passe ou ne passe pas. Recherche méthodique de la cause première sans superflu.
-                  </p>
-                </div>
-                <div className="bg-[#111317] border border-zinc-800/80 p-5 rounded-2xl">
-                  <span className="text-[11px] font-bold text-sky-400 uppercase tracking-wider">02. Pensée Systémique</span>
-                  <h3 className="text-base font-semibold text-white mt-1">Écologie & Résilience</h3>
-                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
-                    Appris en sciences environnementales : chaque composant impacte l'ensemble. Conçu pour bâtir des logiciels durables et équilibrés.
-                  </p>
-                </div>
-                <div className="bg-[#111317] border border-zinc-800/80 p-5 rounded-2xl">
-                  <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">03. Intelligence Métier</span>
-                  <h3 className="text-base font-semibold text-white mt-1">IA & Automatisation</h3>
-                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
-                    Créer de la valeur tangible en intégrant des agents IA connectés directement aux données opérationnelles sans gadget inutile.
-                  </p>
-                </div>
-                <div className="bg-[#111317] border border-zinc-800/80 p-5 rounded-2xl">
-                  <span className="text-[11px] font-bold text-purple-400 uppercase tracking-wider">04. Réalité Client</span>
-                  <h3 className="text-base font-semibold text-white mt-1">L'Humain avant le Code</h3>
-                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
-                    Le code le plus sophistiqué n'a de valeur que s'il résout une vraie friction et s'il est adopté avec clarté par l'utilisateur.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* SECTION 02 : SERVICES & FREELANCE */}
-            <section id="services" className="space-y-6 pt-6 border-t border-zinc-800/80">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Services & Offres Freelance</h2>
-                  <p className="text-sm text-zinc-400 mt-1">Ce que je conçois et déploie pour mes clients et partenaires.</p>
-                </div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300">
-                  Sur-Mesure
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {services.map((s, idx) => (
-                  <div key={idx} className="bg-[#111317] border border-zinc-800/80 p-6 rounded-2xl hover:border-zinc-700 transition">
-                    <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-4">
-                      {s.icon}
-                    </div>
-                    <h3 className="text-base font-semibold text-white mb-2">{s.title}</h3>
-                    <p className="text-xs text-zinc-400 leading-relaxed">{s.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* SECTION 03 : RÉALISATIONS (PROJETS PHARES) */}
-            <section id="projets" className="space-y-6 pt-6 border-t border-zinc-800/80">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Réalisations & SaaS</h2>
-                  <p className="text-sm text-zinc-400 mt-1">Des systèmes bâtis pour répondre à des besoins concrets.</p>
-                </div>
-
-                {/* Filtres de catégories */}
-                <div className="flex flex-wrap gap-2">
-                  {categories.map((c) => (
-                    <button
-                      key={c}
-                      onClick={() => setActiveTab(c)}
-                      className={`text-xs px-3.5 py-1.5 rounded-full transition font-medium ${
-                        activeTab === c
-                          ? "bg-amber-400 text-black font-semibold shadow-md"
-                          : "bg-zinc-900 text-zinc-400 border border-zinc-800 hover:text-white"
-                      }`}
-                    >
-                      {c}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Grille des cartes de projets */}
-              <div className="grid grid-cols-1 gap-5">
-                {filteredProjects.map((p) => (
-                  <div
-                    key={p.id}
-                    className={`bg-[#111317] border rounded-3xl p-6 sm:p-7 transition relative overflow-hidden ${
-                      p.featured
-                        ? "border-amber-400/30 bg-gradient-to-br from-[#111317] to-[#171510]"
-                        : "border-zinc-800/80 hover:border-zinc-700"
+              {/* Filtres clairs */}
+              <div className="flex flex-wrap justify-center gap-2">
+                {categories.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => setActiveTab(c)}
+                    className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                      activeTab === c
+                        ? "bg-black text-white shadow-md"
+                        : "bg-white text-zinc-500 border border-zinc-200 hover:border-zinc-300 hover:text-black"
                     }`}
                   >
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                      <span className={`text-[11px] font-semibold px-3 py-1 rounded-full border w-fit ${p.badgeColor}`}>
-                        {p.tag}
-                      </span>
-                      <span className="text-xs text-emerald-400 font-mono font-medium">
+                    {c}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Grille de cartes de projets */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {filteredProjects.map((p) => (
+                <div key={p.id} className="group relative bg-white border border-zinc-200 rounded-[32px] p-2 hover:shadow-xl hover:border-zinc-300 transition-all duration-300 flex flex-col">
+                  
+                  {/* Image Container */}
+                  <div className="w-full h-64 bg-zinc-100 rounded-[24px] overflow-hidden mb-6 relative">
+                     <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                     <div className="absolute top-4 left-4 flex gap-2">
+                       <span className="px-3 py-1 bg-white/95 backdrop-blur text-[11px] font-bold uppercase tracking-wider rounded-full text-black shadow-sm">
+                         {p.tag}
+                       </span>
+                     </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="px-5 pb-6 flex-1 flex flex-col">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-2xl font-bold text-black tracking-tight">{p.title}</h3>
+                      <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg">
                         {p.stat}
                       </span>
                     </div>
-
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                      {p.title}
-                    </h3>
-                    <p className="text-sm font-medium text-zinc-300 mt-1">
-                      {p.headline}
-                    </p>
-                    <p className="text-xs text-zinc-400 mt-3 leading-relaxed">
-                      {p.description}
-                    </p>
-
-                    <div className="mt-5 pt-4 border-t border-zinc-800/60 flex flex-wrap items-center justify-between gap-3">
+                    <p className="text-sm font-medium text-zinc-800 mb-2">{p.headline}</p>
+                    <p className="text-sm text-zinc-500 leading-relaxed mb-6 flex-1">{p.description}</p>
+                    
+                    {/* Stack & Link */}
+                    <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-zinc-100">
                       <div className="flex flex-wrap gap-2">
-                        {p.stack.map((tech) => (
-                          <span
-                            key={tech}
-                            className="text-[11px] px-2.5 py-0.5 rounded-full bg-zinc-900 text-zinc-400 border border-zinc-800"
-                          >
+                        {p.stack.slice(0,3).map((tech) => (
+                          <span key={tech} className="text-[11px] px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 font-medium">
                             {tech}
                           </span>
                         ))}
                       </div>
-
-                      <a
-                        href="https://wa.me/2250101639295"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 hover:text-amber-300 transition"
-                      >
-                        <span>Discuter de ce projet</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      <a href="https://wa.me/2250101639295" target="_blank" rel="noopener noreferrer" className="p-2 bg-zinc-100 rounded-full hover:bg-amber-400 hover:text-black transition-colors">
+                        <ArrowUpRight className="w-4 h-4" />
                       </a>
                     </div>
                   </div>
-                ))}
-              </div>
-            </section>
 
-            {/* SECTION 04 : PARCOURS & FORMATIONS */}
-            <section id="parcours" className="space-y-6 pt-6 border-t border-zinc-800/80">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                  Parcours, Formations & Évolution
-                </h2>
-                <p className="text-sm text-zinc-400 mt-1">
-                  De la rigueur du séminaire à l'architecture logicielle : chaque étape a forgé ma logique.
-                </p>
-              </div>
+                </div>
+              ))}
+            </div>
+          </section>
 
-              {/* Timeline stylisée avec connecteurs verticaux */}
-              <div className="relative border-l border-zinc-800/80 ml-3 sm:ml-4 pl-6 sm:pl-8 space-y-9">
-                {timeline.map((item, idx) => (
-                  <div key={idx} className="relative group">
-                    {/* Pastille sur la ligne */}
-                    <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-900 border-2 border-amber-400 group-hover:scale-125 transition-transform" />
+          {/* SECTION PARCOURS */}
+          <section id="parcours" className="pt-24 mt-20 border-t border-zinc-200">
+            <div className="mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-black">
+                Parcours & Évolution
+              </h2>
+            </div>
 
-                    <div className="flex flex-wrap items-baseline gap-2.5 mb-1.5">
-                      <span className="text-xs font-bold text-amber-400 font-mono">
-                        {item.period}
-                      </span>
-                      <span className="text-[11px] px-2 py-0.5 rounded-md bg-zinc-800/80 text-zinc-400 font-medium">
-                        {item.type}
-                      </span>
-                    </div>
-
-                    <h3 className="text-base font-semibold text-white">
-                      {item.role} <span className="text-zinc-500 font-normal">· {item.place}</span>
+            <div className="relative border-l-2 border-zinc-100 ml-4 sm:ml-6 pl-8 sm:pl-10 space-y-12">
+              {timeline.map((item, idx) => (
+                <div key={idx} className="relative group">
+                  {/* Dot */}
+                  <div className="absolute -left-[41px] sm:-left-[49px] top-1.5 w-4 h-4 rounded-full bg-white border-[3px] border-black group-hover:scale-125 group-hover:border-amber-500 transition-all duration-300" />
+                  
+                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 mb-2">
+                    <span className="text-sm font-bold text-amber-600 w-32 shrink-0">
+                      {item.period}
+                    </span>
+                    <h3 className="text-lg font-bold text-black">
+                      {item.role} <span className="text-zinc-400 font-normal ml-1">chez {item.place}</span>
                     </h3>
-
-                    <p className="text-xs text-zinc-400 mt-1.5 leading-relaxed">
-                      {item.impact}
-                    </p>
                   </div>
-                ))}
-              </div>
-            </section>
+                  
+                  <p className="text-sm text-zinc-500 leading-relaxed max-w-2xl sm:ml-36">
+                    {item.impact}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-            {/* SECTION 05 : ME CONTACTER (FOOTER BENTO) */}
-            <section id="contact" className="bg-[#111317] border border-zinc-800/90 p-8 sm:p-10 rounded-[32px] text-center space-y-6 relative overflow-hidden">
-              <div className="max-w-md mx-auto space-y-2">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                  Bâtissons votre prochain projet
-                </h2>
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                  Besoin d'un SaaS performant, d'une solution d'intelligence artificielle ou d'une mission de conseil produit ?
-                </p>
-              </div>
+          {/* SECTION CONTACT (Footer contrasté sombre) */}
+          <section className="mt-24 bg-[#151515] rounded-[40px] p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 blur-[80px] pointer-events-none rounded-full" />
+            
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 relative z-10 tracking-tight">
+              Prêt à bâtir votre projet ?
+            </h2>
+            <p className="text-zinc-400 max-w-md mx-auto mb-10 relative z-10">
+              Que vous ayez besoin d'un SaaS performant ou d'intégrer l'IA à vos processus métiers, discutons-en.
+            </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-                <a
-                  href="https://wa.me/2250101639295"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:opacity-95 text-black font-semibold text-sm py-3.5 px-6 rounded-2xl shadow-lg transition"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>WhatsApp direct (+225 0101639295)</span>
-                </a>
-                <a
-                  href="mailto:pierrechristianoya@gmail.com"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white font-medium text-sm py-3.5 px-6 rounded-2xl border border-zinc-800 transition"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>pierrechristianoya@gmail.com</span>
-                </a>
-              </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
+              <a
+                href="https://wa.me/2250101639295"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-black font-bold text-sm py-4 px-8 rounded-full transition-transform hover:scale-105"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Me contacter sur WhatsApp</span>
+              </a>
+              <a
+                href="mailto:pierrechristianoya@gmail.com"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white font-medium text-sm py-4 px-8 rounded-full transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                <span>Par Email</span>
+              </a>
+            </div>
+          </section>
 
-              <p className="text-[11px] text-zinc-500 pt-4 border-t border-zinc-800/60 max-w-sm mx-auto">
-                © {new Date().getFullYear()} Boss OYA (Christian OYA) • Conçu avec rigueur & ambition.
-              </p>
-            </section>
-
-          </main>
-        </div>
+        </main>
       </div>
     </div>
   );
