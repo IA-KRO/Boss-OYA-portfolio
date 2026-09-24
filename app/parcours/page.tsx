@@ -12,7 +12,7 @@ const timeline = [
     period: "2024 — maintenant",
     role: "Certificats et spécialisations IA",
     place: "",
-    impact: "· Learn to build with n8n — N8N Academy· Google AI Essentials — Google / Coursera · AI Essentials for Decision Makers — UNITAR (Institut des Nations Unies)",
+    impact: "· Learn to build with n8n — N8N Academy· Google AI Essentials — Google / Coursera· AI Essentials for Decision Makers — UNITAR (Institut des Nations Unies)",
   },
   {
     period: "2024 — 2025",
