@@ -70,7 +70,8 @@ export default function Portfolio() {
     : projects.filter((p) => p.category === activeTab);
 
   const timeline = [
-    { period: "Depuis Sept. 2024", role: "Promoteur Automobile", place: "SAM Motors", impact: "Vente consultative à haute valeur ajoutée, négociation directe et fidélisation de clientèle premium." },
+    { period: "Depuis 2025", role: "Formation pour une maîtrise en IA", place: "", impact: "Montée en compétence continue autour de l'intelligence artificielle, de l'automatisation et des systèmes intelligents." },
+    { period: "2024 — 2025", role: "Promoteur Automobile", place: "SAM Motors", impact: "Vente consultative à haute valeur ajoutée, négociation directe et fidélisation de clientèle premium." },
     { period: "2023 — 2024", role: "CRM Freelance & Support Client", place: "Yango CI", impact: "Traitement à flux tendu sur une tech de mobilité urbaine. Résolution de frictions et fidélisation à fort volume." },
     { period: "2023", role: "Licence Pro Sciences Environnementales", place: "Groupe ITA", impact: "Acquisition de la pensée systémique : impacts globaux, résilience des écosystèmes et économie circulaire." },
     { period: "2021 — 2023", role: "Technico-Commercial & CM", place: "GISI (Solaire)", impact: "Synergie entre expertise technique solaire, coordination de maintenance SAV et visibilité digitale." },
@@ -304,9 +305,19 @@ export default function Portfolio() {
           {/* SECTION PARCOURS */}
           <section id="parcours" className="pt-24 mt-20 border-t border-zinc-200">
             <div className="mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-black">
-                Parcours & Évolution
-              </h2>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-black">
+                  Parcours & Évolution
+                </h2>
+                <a
+                  href="/parcours"
+                  aria-label="Ouvrir le parcours détaillé"
+                  className="inline-flex items-center gap-2 self-start rounded-full border border-zinc-200 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-700 shadow-sm transition-all hover:border-black hover:bg-black hover:text-white"
+                >
+                  Voir le parcours détaillé
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
 
             <div className="relative border-l-2 border-zinc-100 ml-4 sm:ml-6 pl-8 sm:pl-10 space-y-12">
@@ -320,7 +331,7 @@ export default function Portfolio() {
                       {item.period}
                     </span>
                     <h3 className="text-lg font-bold text-black">
-                      {item.role} <span className="text-zinc-400 font-normal ml-1">chez {item.place}</span>
+                      {item.role}{item.place && <span className="text-zinc-400 font-normal ml-1">chez {item.place}</span>}
                     </h3>
                   </div>
                   
