@@ -6,17 +6,29 @@ import {
   ArrowUpRight, 
   Phone, 
   MapPin, 
-  CheckCircle2,
-  Mail,
-  Layers,
-  Bot,
-  TrendingUp,
-  Cpu
+  CheckCircle2, 
+  Mail, 
+  Layers, 
+  Bot, 
+  TrendingUp, 
+  Cpu 
 } from "lucide-react";
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("Tous");
   const categories = ["Tous", "SaaS & IA", "FinTech", "IoT & Systèmes", "Growth Ops"];
+
+  // Liste des 4 visuels pour le carrousel infini
+  const marqueeItems = [
+    { src: "/brain-ai.jpg", alt: "Architecture IA", label: "IA & RAG" },
+    { src: "/freebetcash.png", alt: "Freebet Cash", label: "FinTech" },
+    { src: "/Avatar-GERANT-sansfond.png", alt: "Gérant IA", label: "SaaS Copilot" },
+    { src: "/smart-bin.jpg", alt: "Smart Eco-Waste CERCO", label: "IoT Urbain" },
+    { src: "/brain-ai.jpg", alt: "Architecture IA", label: "IA & RAG" },
+    { src: "/freebetcash.png", alt: "Freebet Cash", label: "FinTech" },
+    { src: "/Avatar-GERANT-sansfond.png", alt: "Gérant IA", label: "SaaS Copilot" },
+    { src: "/smart-bin.jpg", alt: "Smart Eco-Waste CERCO", label: "IoT Urbain" }
+  ];
 
   const projects = [
     {
@@ -28,7 +40,7 @@ export default function Portfolio() {
       description: "Suite unifiée pour dirigeants et PME combinant gestion commerciale, stocks, facturation et agents IA autonomes connectés aux données métiers.",
       stack: ["Next.js", "Docker", "IA / RAG", "PostgreSQL", "Tailwind"],
       stat: "+60% d'efficacité",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Avatar-GERANT-sansfond-hTZ3YypIM4L7FOeBtiWSz6X7AAR38C.png"
+      image: "/Avatar-GERANT-sansfond.png"
     },
     {
       id: "freebetcash",
@@ -39,7 +51,7 @@ export default function Portfolio() {
       description: "Plateforme web d'arbitrage de données et d'analyse en temps réel, optimisée pour un affichage asynchrone ultra-fluide sur mobile et desktop.",
       stack: ["React", "FastAPI", "WebSockets", "Finance Data"],
       stat: "< 100ms latence",
-      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&auto=format&fit=crop"
+      image: "/freebetcash.png"
     },
     {
       id: "smart-eco-waste",
@@ -50,7 +62,7 @@ export default function Portfolio() {
       description: "Projet de fin d'études : capteurs embarqués de détection et télémétrie en temps réel pour l'optimisation des collectes urbaines.",
       stack: ["Microcontrôleurs", "C++", "Capteurs", "Dashboard IoT"],
       stat: "Mention Excellence",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop"
+      image: "/smart-bin.jpg"
     },
     {
       id: "crm-growth-engines",
@@ -61,7 +73,7 @@ export default function Portfolio() {
       description: "Déploiement de workflows CRM automatisés, stratégies d'acquisition et gestion du support client chez Yango CI et GISI Énergie Solaire.",
       stack: ["Workflows CRM", "Automation", "Analytics", "Vente B2B"],
       stat: "+25k tickets gérés",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+      image: "/brain-ai.jpg"
     }
   ];
 
@@ -89,6 +101,22 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#09090B] font-sans selection:bg-amber-400 selection:text-black">
       
+      {/* Styles d'animation du carrousel intégrés */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-track {
+          display: flex;
+          width: max-content;
+          animation: marquee 22s linear infinite;
+        }
+        .animate-marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}} />
+
       <div className="flex flex-col lg:flex-row max-w-[1400px] mx-auto">
         
         {/* ========================================= */}
@@ -97,15 +125,13 @@ export default function Portfolio() {
         <aside className="lg:w-[320px] p-4 lg:p-6 lg:sticky lg:top-0 lg:h-screen z-20">
           <div className="bg-[#151515] w-full h-full rounded-[32px] p-6 sm:p-8 flex flex-col text-white shadow-2xl relative overflow-hidden">
             
-            {/* Effet lumineux discret */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-amber-500/10 blur-3xl pointer-events-none rounded-full" />
 
-            {/* Header Sidebar */}
             <div className="flex items-center gap-4 mb-8 relative">
               <img
                 src="/avatar.png"
                 alt="Boss OYA"
-                className="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400/40 shadow-md"
+                className="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400/40 shadow-md bg-zinc-900"
               />
               <div>
                 <h1 className="text-lg font-bold text-white flex items-center gap-1.5">
@@ -115,12 +141,10 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Bio */}
             <p className="text-sm text-zinc-400 leading-relaxed mb-8">
               Étudiant permanent par soif d'apprendre, bâtisseur par vocation. Je conçois des SaaS, déploie des systèmes IA et combine vision technique et maîtrise commerciale.
             </p>
 
-            {/* Navigation */}
             <nav className="space-y-1 mb-8 flex-1">
               {[
                 { id: 'about', label: '01. À propos' },
@@ -135,7 +159,6 @@ export default function Portfolio() {
               ))}
             </nav>
 
-            {/* Status */}
             <div className="space-y-3 text-xs text-zinc-400 mb-6 bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800/50">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-zinc-500" />
@@ -147,10 +170,9 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Bouton CTA Principal */}
             <div className="mt-auto">
               <a
-                href="https://wa.me/2250101639295"
+                href="https://wa.me/2250777583007"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 bg-white text-black hover:bg-zinc-200 font-semibold text-sm py-4 px-4 rounded-[20px] transition-all"
@@ -163,14 +185,13 @@ export default function Portfolio() {
         </aside>
 
         {/* ========================================= */}
-        {/* CONTENU PRINCIPAL (Blanc, Centré, Aéré)   */}
+        {/* CONTENU PRINCIPAL                         */}
         {/* ========================================= */}
         <main className="flex-1 px-4 lg:px-16 py-12 lg:py-20 max-w-5xl mx-auto overflow-hidden">
           
           {/* SECTION HERO */}
-          <section id="about" className="flex flex-col items-center text-center pt-8 pb-20">
+          <section id="about" className="flex flex-col items-center text-center pt-8 pb-16">
             
-            {/* Badges du haut */}
             <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
               <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-zinc-200 text-xs font-semibold text-zinc-600 shadow-sm">
                  @boss_oya
@@ -181,19 +202,44 @@ export default function Portfolio() {
               </span>
             </div>
 
-            {/* Titre Massif */}
-            <h1 className="text-[2.5rem] sm:text-[4rem] lg:text-[5.5rem] font-extrabold tracking-tighter leading-[1.05] text-[#09090B] mb-8">
-              Hi I'm Boss OYA <br />
-              Créateur de SaaS <br />
-              <span className="text-zinc-400">&</span> Ingénieur Produit
+            <h1 className="text-[2.5rem] sm:text-[4rem] lg:text-[5.2rem] font-extrabold tracking-tighter leading-[1.05] text-[#09090B] mb-6">
+              Hi je suis Christian OYA <br />
+              <span className="text-zinc-900">AI SaaS Architect</span> <br />
+              <span className="text-zinc-400">&</span> Product Engineer
             </h1>
 
-            <p className="text-lg text-zinc-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-              L'alliance de l'ingénierie, du logiciel et de l'impact terrain. Mon parcours croise la rigueur de l'électronique, la vision de l'environnement et le réalisme de la vente.
+            <p className="text-lg text-zinc-500 max-w-2xl mx-auto mb-8 leading-relaxed">
+              L'alliance de l'ingénierie, du logiciel et de l'impact terrain. Mon parcours croise la rigueur de l'électronique, la vision de l'environnement et le réalisme de la vente[cite: 2].
             </p>
 
-            {/* 4 Vignettes (Piliers) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full mt-4">
+            {/* ========================================= */}
+            {/* CARROUSEL D'IMAGES CONTINU (MARQUEE)      */}
+            {/* ========================================= */}
+            <div className="relative w-full max-w-3xl mx-auto my-6 overflow-hidden rounded-3xl py-2">
+              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#FAFAFA] to-transparent z-10" />
+              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#FAFAFA] to-transparent z-10" />
+
+              <div className="animate-marquee-track flex gap-4 items-center">
+                {marqueeItems.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="group relative flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-white border border-zinc-200/90 p-3.5 shadow-sm hover:shadow-xl hover:border-amber-400/60 hover:scale-105 transition-all duration-300 flex flex-col items-center justify-center cursor-pointer"
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="w-full h-full object-contain filter group-hover:brightness-105 transition"
+                    />
+                    <span className="absolute bottom-1.5 text-[9px] font-bold text-zinc-600 uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                      {item.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 4 Piliers Bento */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full mt-6">
               {[
                 { title: "Rigueur", desc: "Diagnostic à la racine" },
                 { title: "Système", desc: "Pensée globale" },
@@ -240,7 +286,6 @@ export default function Portfolio() {
                 Projects that tell stories
               </h2>
               
-              {/* Filtres clairs */}
               <div className="flex flex-wrap justify-center gap-2">
                 {categories.map((c) => (
                   <button
@@ -258,14 +303,16 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Grille de cartes de projets */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {filteredProjects.map((p) => (
                 <div key={p.id} className="group relative bg-white border border-zinc-200 rounded-[32px] p-2 hover:shadow-xl hover:border-zinc-300 transition-all duration-300 flex flex-col">
                   
-                  {/* Image Container */}
-                  <div className="w-full h-64 bg-zinc-100 rounded-[24px] overflow-hidden mb-6 relative">
-                     <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="w-full h-64 bg-zinc-50 rounded-[24px] overflow-hidden mb-6 relative flex items-center justify-center p-6">
+                     <img 
+                       src={p.image} 
+                       alt={p.title} 
+                       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" 
+                     />
                      <div className="absolute top-4 left-4 flex gap-2">
                        <span className="px-3 py-1 bg-white/95 backdrop-blur text-[11px] font-bold uppercase tracking-wider rounded-full text-black shadow-sm">
                          {p.tag}
@@ -273,7 +320,6 @@ export default function Portfolio() {
                      </div>
                   </div>
                   
-                  {/* Content */}
                   <div className="px-5 pb-6 flex-1 flex flex-col">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-2xl font-bold text-black tracking-tight">{p.title}</h3>
@@ -284,7 +330,6 @@ export default function Portfolio() {
                     <p className="text-sm font-medium text-zinc-800 mb-2">{p.headline}</p>
                     <p className="text-sm text-zinc-500 leading-relaxed mb-6 flex-1">{p.description}</p>
                     
-                    {/* Stack & Link */}
                     <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-zinc-100">
                       <div className="flex flex-wrap gap-2">
                         {p.stack.slice(0,3).map((tech) => (
@@ -293,7 +338,7 @@ export default function Portfolio() {
                           </span>
                         ))}
                       </div>
-                      <a href="https://wa.me/2250101639295" target="_blank" rel="noopener noreferrer" className="p-2 bg-zinc-100 rounded-full hover:bg-amber-400 hover:text-black transition-colors">
+                      <a href="https://wa.me/2250777583007" target="_blank" rel="noopener noreferrer" className="p-2 bg-zinc-100 rounded-full hover:bg-amber-400 hover:text-black transition-colors">
                         <ArrowUpRight className="w-4 h-4" />
                       </a>
                     </div>
@@ -325,7 +370,6 @@ export default function Portfolio() {
             <div className="relative border-l-2 border-zinc-100 ml-4 sm:ml-6 pl-8 sm:pl-10 space-y-12">
               {timeline.map((item, idx) => (
                 <div key={idx} className="relative group">
-                  {/* Dot */}
                   <div className="absolute -left-[41px] sm:-left-[49px] top-1.5 w-4 h-4 rounded-full bg-white border-[3px] border-black group-hover:scale-125 group-hover:border-amber-500 transition-all duration-300" />
                   
                   <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 mb-2">
@@ -345,7 +389,7 @@ export default function Portfolio() {
             </div>
           </section>
 
-          {/* SECTION CONTACT (Footer contrasté sombre) */}
+          {/* SECTION CONTACT */}
           <section className="mt-24 bg-[#151515] rounded-[40px] p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 blur-[80px] pointer-events-none rounded-full" />
             
@@ -358,7 +402,7 @@ export default function Portfolio() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
               <a
-                href="https://wa.me/2250101639295"
+                href="https://wa.me/2250777583007"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-black font-bold text-sm py-4 px-8 rounded-full transition-transform hover:scale-105"
@@ -367,7 +411,7 @@ export default function Portfolio() {
                 <span>Me contacter sur WhatsApp</span>
               </a>
               <a
-                href="mailto:pierrechristianoya@gmail.com"
+                href="mailto:iakrosas2024@gmail.com"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white font-medium text-sm py-4 px-8 rounded-full transition-colors"
               >
                 <Mail className="w-4 h-4" />
