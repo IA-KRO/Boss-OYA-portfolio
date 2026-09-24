@@ -102,9 +102,11 @@ export default function Portfolio() {
 
             {/* Header Sidebar */}
             <div className="flex items-center gap-4 mb-8 relative">
-              <div className="w-14 h-14 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center font-bold text-xl text-amber-400">
-                BO
-              </div>
+              <img
+                src="/avatar.png"
+                alt="Boss OYA"
+                className="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400/40 shadow-md"
+              />
               <div>
                 <h1 className="text-lg font-bold text-white flex items-center gap-1.5">
                   Boss OYA <Sparkles className="w-3.5 h-3.5 text-amber-400" />
