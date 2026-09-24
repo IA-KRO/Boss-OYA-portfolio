@@ -28,7 +28,7 @@ export default function Portfolio() {
       description: "Suite unifiée pour dirigeants et PME combinant gestion commerciale, stocks, facturation et agents IA autonomes connectés aux données métiers.",
       stack: ["Next.js", "Docker", "IA / RAG", "PostgreSQL", "Tailwind"],
       stat: "+60% d'efficacité",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Avatar-GERANT-sansfond-hTZ3YypIM4L7FOeBtiWSz6X7AAR38C.png"
     },
     {
       id: "freebetcash",
